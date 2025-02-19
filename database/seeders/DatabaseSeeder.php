@@ -17,16 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // Create an admin user
-        User::factory()->create([
-            'first_name' => 'Admin',
-            'last_name' => 'User',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('Password123!'),
-        ]);
-
         // Create additional users
         User::factory(10)->create();
 
@@ -40,7 +30,10 @@ class DatabaseSeeder extends Seeder
                 'user_id' => User::inRandomOrder()->first()->id,
             ]);
             // Create attributes for each project
-            $project->attributes()->attach(Attribute::inRandomOrder()->first()->id);
+            $project->attributeValues()->create([
+                'attribute_id' => Attribute::inRandomOrder()->first()->id,
+                'value' => fake()->word(),
+            ]);
         });
     }
 }
