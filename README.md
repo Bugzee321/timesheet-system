@@ -13,72 +13,62 @@ This project is built using Laravel and depends on Docker, Docker Compose, and P
 
 1. **Clone the repository:**
    ```sh
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/Bugzee321/timesheet-system.git
+   cd timesheet-system
    ```
 
 2. **Copy the example environment file and configure it:**
    ```sh
    cp .env.example .env
    ```
-
-3. **Install PHP dependencies:**
-   ```sh
-   composer install
-   ```
-
-4. **Generate application key:**
-   ```sh
-   php artisan key:generate
-   ```
-
 5. **Run Docker containers:**
    ```sh
    docker-compose up -d
    ```
 
+4. **Generate application key:**
+   ```sh
+   docker-compose exec app php artisan key:generate
+   ```
+
+
 6. **Run database migrations:**
    ```sh
-   php artisan migrate
+   docker-compose exec app php artisan migrate
    ```
 
 7. **Generate Passport keys:**
    ```sh
-   php artisan passport:keys
+   docker-compose exec app php artisan passport:keys
    ```
 
 8. **Create a personal access client for Passport:**
    ```sh
-   php artisan passport:client --personal
+   docker-compose exec app php artisan passport:client --personal
    ```
 
 9. **Generate Swagger documentation:**
    ```sh
-   php artisan l5-swagger:generate
+   docker-compose exec app php artisan l5-swagger:generate
    ```
 
 10. **Run database migrations for testing environment:**
     ```sh
-    php artisan migrate --env=testing
+    docker-compose exec app php artisan migrate --env=testing
     ```
 
 11. **Seed the database for testing environment:**
     ```sh
-    php artisan db:seed --env=testing
+    docker-compose exec app php artisan db:seed --env=testing
     ```
 
 ## Running Tests
 
 To run the tests, use the following commands:
 
-1. **Run all tests:**
+1. **Run tests for testing environment**
    ```sh
-   php artisan test
-   ```
-
-2. **Run tests for testing environment**
-   ```sh
-   php artisan test --env=testing
+   docker-compose exec app php artisan test --env=testing
    ```
 
 ## API Documentation
