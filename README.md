@@ -6,8 +6,6 @@ This project is built using Laravel and depends on Docker, Docker Compose, and P
 
 - Docker
 - Docker Compose
-- PHP
-- Composer
 
 ## Setup Instructions
 
