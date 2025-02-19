@@ -24,7 +24,12 @@ This project is built using Laravel and depends on Docker, Docker Compose, and P
    docker-compose up -d
    ```
 
-4. **Generate application key:**
+3. **Install PHP dependencies:**
+   ```sh
+   docker-compose exec app composer install
+   ```
+
+4. **Generate application key**
    ```sh
    docker-compose exec app php artisan key:generate
    ```
