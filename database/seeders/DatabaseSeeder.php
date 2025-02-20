@@ -17,6 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create an admin user
+        User::factory()->create([
+            'first_name' => 'Admin',
+            'last_name' => 'User',
+            'email' => 'admin@astudio.com',
+            'password' => Hash::make('Password123!'),
+        ]);
         // Create additional users
         User::factory(10)->create();
 

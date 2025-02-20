@@ -74,6 +74,11 @@ To run the tests, use the following commands:
    docker-compose exec app php artisan test --env=testing
    ```
 
+## Testing User Credentials
+
+- **Email:** admin@astudio.com
+- **Password:** Password123!
+
 ## API Documentation
 
 The API documentation is available at:
